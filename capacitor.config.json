@@ -1,0 +1,6 @@
+{
+    "appId": "com.yourapp.jobsphere",
+    "appName": "Jobsphere Mobile App",
+    "webDir": "dist",
+    "bundledWebRuntime": false
+}
