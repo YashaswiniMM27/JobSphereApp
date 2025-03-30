@@ -1,0 +1,53 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    --background: transparent !important;
+}
+
+
+.listingHeader{
+    text-align: center;
+    padding-top: 90px;
+    font-size: 26px;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px black;
+    font-weight: 600;
+}
+
+.jobLists {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px 0 20px;
+}
+
+.jobItem {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .jobItem {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .jobItem {
+        width: 20%;
+    }
+}
+
+.loading, .error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    height: 100vh;
+    width: 100vw;
+}

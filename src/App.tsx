@@ -2,17 +2,19 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Header from './components/Header';
-import './styles/index.css'
+import './styles/index.css';
+import Home from './pages/Home';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <Header/>
+      <Header />
       <IonRouterOutlet>
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route exact path="/home" component={Home} />
         </Switch>
       </IonRouterOutlet>
     </IonReactRouter>
