@@ -7,6 +7,7 @@ import { AppDispatch, RootState } from "../store/store";
 import "../styles/jobApplication.css";
 import { Link } from "react-router-dom";
 import { IonContent } from "@ionic/react";
+import storage from "../storage/storage"; // Import the storage
 
 function JobApplication() {
     const { id } = useParams<{ id: string }>();  // Get job ID from URL
@@ -32,40 +33,46 @@ function JobApplication() {
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+        e.preventDefault();
 
-    const applicationData = {
-        name,
-        email,
-        coverLetter,
-        jobId: id,
+        const applicationData = {
+            name,
+            email,
+            coverLetter,
+            jobId: id,
+            jobTitle: selectedJob?.title,
+        };
+
+        // Store application in Ionic Storage
+        const storedApplications = await storage.get('appliedJobs') || [];
+        storedApplications.push(applicationData);
+        await storage.set('appliedJobs', storedApplications);  // Save to storage
+
+        // Dispatch the application submission
+        dispatch(submitJobApplication(applicationData));
+
+        // Reset form after submission
+        setName("");
+        setEmail("");
+        setCoverLetter("");
+        setResume(null);
+
+        // Show the success popup
+        setIsSuccess(true);
+
+        // Redirect after submission
+        history.push("/");  // Adjust the time for popup visibility
     };
-
-    // Dispatch the application submission
-    dispatch(submitJobApplication(applicationData));
-
-    // Reset form after submission
-    setName("");
-    setEmail("");
-    setCoverLetter("");
-    setResume(null);
-
-    // Show the success popup
-    setIsSuccess(true);
-
-    history.push("/");  // Adjust the time for popup visibility
-};
-
 
     // Close the success popup
     const closePopUp = () => {
         setIsSuccess(false);
     };
 
-            // Show loading state while data is being fetched
+    // Show loading state while data is being fetched
     if (loading) return <div className="loading">Loading...</div>;
 
-        // Show loading state while data is being fetched
+    // Show error state if data fetching fails
     if (error) return <div className="error">{error}</div>;
 
     return (
