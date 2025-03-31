@@ -6,11 +6,11 @@ function BottomNav() {
         <IonFooter className="bottomNav">
             <IonTabBar slot="bottom">
                 <IonTabButton tab="applied" href="/applied">
-                    <IonText>Applied</IonText>
+                    <IonText className='applied'>Applied</IonText>
                 </IonTabButton>
 
                 <IonTabButton tab="about" href="/about">
-                    <IonText>About</IonText>
+                    <IonText class='about'>About</IonText>
                 </IonTabButton>
             </IonTabBar>
         </IonFooter>
