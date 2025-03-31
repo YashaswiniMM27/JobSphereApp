@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';  // Import Dispatch
 import { setJobs, setLoading, setError, selectJob, Job } from '../store/jobSlice';
 import { getJobDetails, getJobListings, postJobApplication } from '../services/jobServices';
+import { createAction } from '@reduxjs/toolkit';
 
 // Fetch job listings
 export const fetchJobListings = () => async (dispatch: Dispatch) => {
@@ -45,3 +46,5 @@ export const submitJobApplication = (applicationData: any) => async (dispatch: D
         dispatch(setLoading(false));  // Reset loading state
     }
 };
+
+export const removeJobFromListing = createAction<number>('job/removeJobFromListing');
