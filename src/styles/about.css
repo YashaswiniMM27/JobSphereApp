@@ -3,9 +3,10 @@ ion-text.aboutText{
     align-items: flex-start;
     justify-content: center;
     height: 100%;
-    padding: 100px 30px 700px;
+    padding: 100px 30px ;
     font-size: 22px;
     font-weight: 500;
     color: white;
     -webkit-text-stroke: 0.8px black;
+    overflow-y: scroll;
 }

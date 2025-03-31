@@ -19,47 +19,49 @@ function JobDetails() {
     }, [dispatch, id]);
 
     return (
-            <IonContent fullscreen className="jobDetailsContent">
-                {loading && (
-                    <div className="loading">
-                        <IonSpinner name="crescent" />
-                    </div>
-                )}
-
-                {error && (
-                    <div className="error">
-                        <IonText color="danger">{error}</IonText>
-                    </div>
-                )}
-
-                <div className="backLink">
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                        <IonButton fill="clear" color="primary">
-                            <img className="backBtn" src="/assets/backButton.png" alt="back" />
-                            Back
-                        </IonButton>
-                    </Link>
-                </div>
-
-                <div className="descriptionBox">
-                    {selectedJob ? (
-                        <div className="jobDescription">
-                            <IonText>
-                                <h1>{selectedJob.title}</h1>
-                                <p>{selectedJob.body}</p>
-                            </IonText>
+            <IonPage className='jobDetailsPage'>
+                <IonContent fullscreen className="jobDetailsContent">
+                    {loading && (
+                        <div className="loading">
+                            <IonSpinner name="crescent" />
                         </div>
-                    ) : (
-                        <div>No job details available</div>
                     )}
 
-                    <div className="applyButtonContainer">
-                        <Link to={selectedJob ? `/apply/${selectedJob.id}` : "#"}>
-                            <IonButton disabled={!selectedJob} expand="full">Apply</IonButton>
+                    {error && (
+                        <div className="error">
+                            <IonText color="danger">{error}</IonText>
+                        </div>
+                    )}
+
+                    <div className="backLink">
+                        <Link to="/" style={{ textDecoration: 'none' }}>
+                            <IonButton fill="clear" className='backBtn'>
+                                <img src="/assets/backButton.png" alt="back" />
+                                Back
+                            </IonButton>
                         </Link>
                     </div>
-                </div>
-            </IonContent>
+
+                    <div className="descriptionBox">
+                        {selectedJob ? (
+                            <div className="jobDescription">
+                                <IonText>
+                                    <h1>{selectedJob.title}</h1>
+                                    <p>{selectedJob.body}</p>
+                                </IonText>
+                            </div>
+                        ) : (
+                            <div>No job details available</div>
+                        )}
+
+                        <div className="applyButtonContainer">
+                            <Link to={selectedJob ? `/apply/${selectedJob.id}` : "#"}>
+                                <IonButton className='applyBtn' disabled={!selectedJob} expand="full">Apply</IonButton>
+                            </Link>
+                        </div>
+                    </div>
+                </IonContent>
+            </IonPage>
     );
 }
 

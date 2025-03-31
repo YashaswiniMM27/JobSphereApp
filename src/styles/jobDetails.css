@@ -1,0 +1,35 @@
+.backLink{
+    margin-top: 80px;
+}
+
+ion-button.backBtn{
+    color: white;
+    -webkit-text-stroke: 0.4px black;
+}
+
+.descriptionBox{
+    padding: 0 30px;
+
+}
+
+.jobDescription h1{
+    color: white;
+    -webkit-text-stroke: 1.4px black;
+}
+
+.jobDescription p{
+    color: white;
+    -webkit-text-stroke: 0.2px black;
+}
+
+ion-button.applyBtn{
+    --background:  rgb(187, 196, 224);
+    -webkit-text-stroke: 0.8px black;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+ion-button::part(native) {
+    border-radius: 30px;
+}
+
