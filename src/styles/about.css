@@ -1,0 +1,11 @@
+ion-text.aboutText{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    padding: 100px 30px 700px;
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    -webkit-text-stroke: 0.8px black;
+}

@@ -6,7 +6,7 @@ import './styles/index.css';
 import Home from './pages/Home';
 import BottomNav from './components/BottomNav';
 import Applied from './pages/AppliedJobs';
-import About from './pages/about';
+import About from './pages/About';
 
 setupIonicReact();
 

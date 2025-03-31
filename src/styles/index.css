@@ -9,6 +9,14 @@ html, body{
     width: 100vw;
 }
 
+ion-content{
+    --background: transparent;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-start: 0px;
+    --padding-end: 0px;
+}
+
 a{
     text-decoration: none;
 }
