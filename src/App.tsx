@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Header from './components/Header';
 import './styles/index.css';
 import Home from './pages/Home';
+import BottomNav from './components/BottomNav';
 
 setupIonicReact();
 
@@ -18,6 +19,7 @@ const App: React.FC = () => (
         </Switch>
       </IonRouterOutlet>
     </IonReactRouter>
+    <BottomNav/>
   </IonApp>
 );
 

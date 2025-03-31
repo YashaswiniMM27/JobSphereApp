@@ -1,13 +1,14 @@
 import { IonContent, IonPage } from "@ionic/react"
+import React from "react"
 
-function Applied(){
+function About(){
     return(
         <IonPage>
             <IonContent fullscreen>
-                <h1>Applied</h1>
+                <h1>About Page</h1>
             </IonContent>
         </IonPage>
     )
 }
 
-export default Applied
+export default About
