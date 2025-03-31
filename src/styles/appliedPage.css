@@ -1,0 +1,65 @@
+.appliedJobsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px 80px 80px 80px ;
+}
+
+.appliedJobsContainer h1{
+    text-align: center;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px black;
+    font-weight: 600;
+    margin: 0;
+}
+
+.appliedJobsContainer ul{
+    padding: 0;
+    margin: 0;
+}
+
+.appliedJobsContainer li::marker{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.appliedJobList h3{
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px black;
+    font-size: 22px;
+}
+
+.appliedJobList p{
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.6px black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.appliedCL{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.noJobs{
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.6px black;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.backHome{
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.6px black;
+    font-size: 16px;
+    font-weight: 600;
+    background-color:  rgb(170, 178, 202);
+    padding: 5px 15px;
+    border-radius: 35px;
+    box-shadow: 0.2px 15px 15px rgba(0, 0, 0, 0.1);
+}

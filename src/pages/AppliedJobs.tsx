@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IonContent } from "@ionic/react";
 import { Link } from "react-router-dom";
 import storage from "../storage/storage";
+import '../styles/appliedPage.css'
 
 function AppliedJobs() {
     const [appliedJobs, setAppliedJobs] = useState<any[]>([]);
@@ -22,18 +23,18 @@ function AppliedJobs() {
                 {appliedJobs.length > 0 ? (
                     <ul>
                         {appliedJobs.map((job, index) => (
-                            <li key={index}>
+                            <li className="appliedJobList" key={index}>
                                 <h3>{job.jobTitle}</h3>
                                 <p>{job.name}</p>
                                 <p>{job.email}</p>
-                                <p>{job.coverLetter}</p>
+                                <p className="appliedCL">{job.coverLetter}</p>
                             </li>
                         ))}
                     </ul>
                 ) : (
-                    <p>No jobs applied yet.</p>
+                    <p className="noJobs">No jobs applied yet.</p>
                 )}
-                <Link to="/">Back to Home</Link>
+                <Link className="backHome" style={{textDecoration: 'none'}} to="/">Back to Home</Link>
             </div>
         </IonContent>
     );
