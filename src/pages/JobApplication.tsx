@@ -7,7 +7,6 @@ import { AppDispatch, RootState } from "../store/store";
 import "../styles/jobApplication.css";
 import { Link } from "react-router-dom";
 import { IonContent } from "@ionic/react";
-import SuccessPopUp from "../components/SuccessPopup";
 
 function JobApplication() {
     const { id } = useParams<{ id: string }>();  // Get job ID from URL
@@ -149,8 +148,6 @@ function JobApplication() {
                     )}
                 </div>
             </div>
-
-            {isSuccess && <SuccessPopUp message="Your application has been successfully submitted!" onClose={closePopUp} />}
         </IonContent>
     );
 }
