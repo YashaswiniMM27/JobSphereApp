@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';  // Import Dispatch
-import { setJobs, setLoading, setError } from '../store/jobSlice';
-import { getJobListings } from '../services/jobServices';
+import { setJobs, setLoading, setError, selectJob, Job } from '../store/jobSlice';
+import { getJobDetails, getJobListings } from '../services/jobServices';
 
-// Fetch job listings using the API and dispatch actions to update the Redux store
+// Fetch job listings
 export const fetchJobListings = () => async (dispatch: Dispatch) => {
     dispatch(setLoading(true));
     try {
@@ -17,5 +17,18 @@ export const fetchJobListings = () => async (dispatch: Dispatch) => {
         }
     } finally {
         dispatch(setLoading(false));  // Set loading to false once the operation completes
+    }
+};
+
+// Function to fetch and dispatch selected job details
+export const fetchJobDetails = (id: number) => async (dispatch: Dispatch) => {
+    dispatch(setLoading(true));  // Set loading state to true
+    try {
+        const jobDetails: Job = await getJobDetails(id);  // Fetch job details by id from API
+        dispatch(selectJob(jobDetails));  // Dispatch the job details to Redux store
+    } catch (error) {
+        dispatch(setError(`Failed to fetch job details for ID: ${id}`));  // Dispatch error to Redux store
+    } finally {
+        dispatch(setLoading(false));  // Set loading state to false after request is completed
     }
 };

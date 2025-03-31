@@ -1,38 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface Job {
+export interface Job {
     id: number;
     title: string;
     body: string;
-}
+    }
+interface JobState {
+    jobs: Job[];
+    selectedJob: Job | null; // Update the type to allow null
+    loading: boolean;
+    error: string | null;
+    }
 
-// Define initial state for job-related data
-const initialState = {
-    jobs: [] as Job[],
+    const initialState: JobState = {
+    jobs: [],
     selectedJob: null,
     loading: false,
     error: null,
-};
+    };
 
-// Create slice for job-related state management
-const jobSlice = createSlice({
+    const jobSlice = createSlice({
     name: 'job',
     initialState,
     reducers: {
-    // Action to set the list of jobs in state
-    setJobs: (state, action) => {
+        setJobs: (state, action: PayloadAction<Job[]>) => {
         state.jobs = action.payload;
         },
-        // Action to set the selected job in state
-        selectJob: (state, action) => {
+        selectJob: (state, action: PayloadAction<Job>) => {
         state.selectedJob = action.payload;
         },
-        // Action to set loading state
-        setLoading: (state, action) => {
+        setLoading: (state, action: PayloadAction<boolean>) => {
         state.loading = action.payload;
         },
-        // Action to set error message in state
-        setError: (state, action) => {
+        setError: (state, action: PayloadAction<string>) => {
         state.error = action.payload;
         },
     },

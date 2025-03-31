@@ -6,7 +6,9 @@ import './styles/index.css';
 import Home from './pages/Home';
 import BottomNav from './components/BottomNav';
 import Applied from './pages/AppliedJobs';
-import About from './pages/About';
+import About from './pages/about';
+import JobDetails from './pages/JobDetails';
+import { Provider } from 'react-redux';
 
 setupIonicReact();
 
@@ -20,6 +22,7 @@ const App: React.FC = () => (
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/home" />} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/job-details/:id" component={JobDetails} />
             <Route exact path="/applied" component={Applied} />
             <Route exact path="/about" component={About} />
           </Switch>
