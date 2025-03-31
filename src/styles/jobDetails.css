@@ -27,6 +27,7 @@ ion-button.applyBtn{
     -webkit-text-stroke: 0.8px black;
     font-weight: 700;
     font-size: 18px;
+    cursor: pointer;
 }
 
 ion-button::part(native) {

@@ -1,0 +1,176 @@
+.FormContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.backFromApplication {
+    position: absolute;
+    top: 120px;
+    left: 140px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .backFromApplication {
+        top: 120px;
+        left: 50px;
+    }
+}
+
+.backTxtApplication {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    -webkit-text-stroke: 0.8px black;
+}
+
+.FromApplication{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.jobApplication{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 70%;
+    background-color:rgb(147, 155, 177);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 45px;
+    
+}
+
+.jobApplication h1 {
+    text-align: center;
+    font-size: 28px;
+    margin: 35px 0 30px 0;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1.2px black;
+}
+
+@media (max-width: 768px) {
+    .jobApplication h1 {
+        margin-top: 35px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nameField, .emailField, .coverLetterField, .resumeField{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.resume{
+    background-color: white;
+}
+
+label {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.8px black;
+}
+
+input,
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    resize: vertical;
+    font-family: inherit
+}
+
+input:focus,
+textarea:focus {
+    border-color: #5b9bd5;
+    box-shadow: 0 0 5px rgba(91, 155, 213, 0.3);
+}
+
+.chooseFileBtn{
+    width: 100%;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.chooseFileBtn img{
+    height: 30px;
+}
+
+.submitBtn {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    -webkit-text-stroke: 0.8px black;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+    background-color: #419145;
+}
+
+.submitBtn:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+@media (max-width: 768px) {
+    .job-application {
+        padding: 15px;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+.loading, .error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    -webkit-text-stroke: 1px black;
+    height: 100vh;
+    width: 100vw;
+}

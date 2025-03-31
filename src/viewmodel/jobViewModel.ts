@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';  // Import Dispatch
 import { setJobs, setLoading, setError, selectJob, Job } from '../store/jobSlice';
-import { getJobDetails, getJobListings } from '../services/jobServices';
+import { getJobDetails, getJobListings, postJobApplication } from '../services/jobServices';
 
 // Fetch job listings
 export const fetchJobListings = () => async (dispatch: Dispatch) => {
@@ -30,5 +30,18 @@ export const fetchJobDetails = (id: number) => async (dispatch: Dispatch) => {
         dispatch(setError(`Failed to fetch job details for ID: ${id}`));  // Dispatch error to Redux store
     } finally {
         dispatch(setLoading(false));  // Set loading state to false after request is completed
+    }
+};
+
+// Async action to submit a job application
+export const submitJobApplication = (applicationData: any) => async (dispatch: Dispatch) => {
+    dispatch(setLoading(true));  // Set loading state to true
+    try {
+        await postJobApplication(applicationData);  // Submit the job application
+        alert("Application submitted successfully!");  // Notify user
+    } catch (error) {
+        dispatch(setError("Failed to submit job application"));  // Dispatch error
+    } finally {
+        dispatch(setLoading(false));  // Reset loading state
     }
 };

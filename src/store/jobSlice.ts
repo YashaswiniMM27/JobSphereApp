@@ -5,6 +5,14 @@ export interface Job {
     title: string;
     body: string;
     }
+
+export interface JobApplicationData {
+    name: string;
+    email: string;
+    coverLetter: string;
+    jobId: string | number;
+}
+
 interface JobState {
     jobs: Job[];
     selectedJob: Job | null; // Update the type to allow null

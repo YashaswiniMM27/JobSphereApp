@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Job } from '../store/jobSlice';
+import { Job, JobApplicationData } from '../store/jobSlice';
 
 // Create an Axios instance with the base URL for API requests
 const api = axios.create({
@@ -25,3 +25,22 @@ export const getJobDetails = async (id: number): Promise<Job> => {
         throw new Error(`Failed to fetch job details for ID: ${id}`);
         }
     };
+
+// Function to submit a job application
+export const postJobApplication = async (applicationData: JobApplicationData) => {
+    try {
+        console.log("Sending request to API with data:", applicationData);
+
+        const response = await api.post("/posts", applicationData, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error("API request failed:", error);
+        throw new Error("Failed to submit job application");
+    }
+};
+
