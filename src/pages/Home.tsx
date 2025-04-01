@@ -26,25 +26,20 @@ function Home() {
 
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // Show loading state while data is being fetched
+    if (loading) return <div className="loading">Loading...</div>;
+
+    // Show error state if data fetching fails
+    if (error) return <div className="error">{error}</div>;
 
     return (
         <IonContent className="home">
             <div className="listingHeader">
                 Job Listings
             </div>
-
-            {loading && (
-                <div className="loading">
-                    <IonSpinner name="crescent" />
-                </div>
-            )}
-
-            {error && (
-                <div className="error">
-                    <IonText color="danger">{error}</IonText>
-                </div>
-            )}
 
             <div className="jobLists">
                 {currentJobs.length === 0 ? (

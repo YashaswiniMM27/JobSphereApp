@@ -18,21 +18,16 @@ function JobDetails() {
         }
     }, [dispatch, id]);
 
+    // Show loading state while data is being fetched
+    if (loading) return <div className="loading">Loading...</div>;
+
+    // Show error state if data fetching fails
+    if (error) return <div className="error">{error}</div>;
+
     return (
             <IonPage className='jobDetailsPage'>
                 <IonContent fullscreen className="jobDetailsContent">
-                    {loading && (
-                        <div className="loading">
-                            <IonSpinner name="crescent" />
-                        </div>
-                    )}
-
-                    {error && (
-                        <div className="error">
-                            <IonText color="danger">{error}</IonText>
-                        </div>
-                    )}
-
+                    
                     <div className="backLink">
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <IonButton fill="clear" className='backBtn'>
